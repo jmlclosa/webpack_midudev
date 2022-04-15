@@ -21,19 +21,24 @@ const rulesForJavascript = {
 };
 const rules = [rulesForJavascript, ruleForStyles]
 
-module.exports = {
-    // entry: './src/indexjs',
-    // output: {
-    //     path: path.resolve(__dirname, 'build')
-    // }
-    module: {rules},
-    plugins: [
-        new HtmlWebpackPlugin({ template: 'src/index.html'})
-    ],
-    devServer: {
-        open: true, // Abrimos el navegador al arrancar el dev-server
-        port: 3000,
-        compress: true
-    },
-    // devtool: 'source-map'
+module.exports = (env, argv) => {
+    const {mode} = argv
+    const isProduction = mode === 'production'
+    return {
+        // entry: './src/index.js',
+        output: {
+            //     path: path.resolve(__dirname, 'build')
+            filename: isProduction ? '[name].[contenthash].js' : 'main.js'
+        },
+        module: {rules},
+        plugins: [
+            new HtmlWebpackPlugin({template: 'src/index.html'})
+        ],
+        devServer: {
+            open: true, // Abrimos el navegador al arrancar el dev-server
+            port: 3000,
+            compress: true
+        },
+        // devtool: 'source-map'
+    }
 }

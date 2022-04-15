@@ -149,3 +149,33 @@ Sin esto, veríamos referencias al fichero main.js y a líneas que no correspond
     ...
     devtool: 'source-map'
 ```
+
+
+# Compilando para producción
+
+Podemos cambiar el script `build` o crear uno nuevo con el modo `--mode=production`
+
+Esto generará una build con el código minimizado, etc.
+
+## Hashing de archivos
+
+Si metiésemos una caché a los ficheros, podríamos tener problemas...
+
+Podemos configurar que en desarrollo no tengamos un hash de fichero pero en producción si:
+1. En el fichero webpack.config.js configuraremos el output en base a los argumentos recibidos:
+```
+module.exports = (env, argv) => {
+    const {mode} = argv
+    const isProduction = mode === 'production'
+    return {
+        // entry: './src/index.js',
+        output: {
+            //     path: path.resolve(__dirname, 'build')
+            filename: isProduction ? '[name].[contenthash].js' : 'main.js'
+        },
+```
+   * argv: Recibe los argumentos del script, entre ellos el 'mode' con el valor 'production' o 'development'
+   * Si estamos en producción, construiremos el nombre del fichero con las variables "mágicas" `[name]` y `[contenthash]`
+   * `[contenthash]` generará un hash en base al contenido del fichero
+
+De esta forma, podemos cachear los ficheros para siempre, porque cambiarán siempre que cambie el contenido.
