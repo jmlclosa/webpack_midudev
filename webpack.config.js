@@ -34,5 +34,6 @@ module.exports = {
         open: true, // Abrimos el navegador al arrancar el dev-server
         port: 3000,
         compress: true
-    }
+    },
+    // devtool: 'source-map'
 }

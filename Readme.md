@@ -133,3 +133,19 @@ devServer: {
   compress: true
 }
 ```
+
+
+# Usando source maps
+
+Para mejorar la trazabilidad de errores y ver en el navegador las referencias al código fuente que 
+provocan los errores. 
+
+Sin esto, veríamos referencias al fichero main.js y a líneas que no corresponden con nuestro código fuente.
+
+**NO USAR PARA PRODUCCIÓN** obviamente...
+
+1. Añadimos en webpack.config.js:
+```
+    ...
+    devtool: 'source-map'
+```
