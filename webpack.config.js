@@ -29,5 +29,10 @@ module.exports = {
     module: {rules},
     plugins: [
         new HtmlWebpackPlugin({ template: 'src/index.html'})
-    ]
+    ],
+    devServer: {
+        open: true, // Abrimos el navegador al arrancar el dev-server
+        port: 3000,
+        compress: true
+    }
 }

@@ -109,3 +109,27 @@ npm install html-webpack-plugin --save-dev
 2. Lo usamos en webpack.config.js
 3. Movemos el index.html de ./dist a ./src y le quitamos el import del main.js, que lo hará automáticamente
 4. Compilamos
+
+
+# Usar un entorno de desarrollo de Webpack
+
+Para evitarnos estar todo el tiempo compilando y demás:
+1. Creamos un script "dev":
+```
+    "dev": "webpack serve --mode=development",
+```
+2. Ejecutamos `npm run dev` y le decimos que si a instalar la dependencia 'webpack-dev-server'
+3. Abrimos la URL que nos indica
+4. Ahora, cualquier cambio que hagamos en un fichero, se reflejará automáticamente en el navegador al guardar
+
+## Configuraciones extra del devServer
+En el webpack.config.js podemos configurar cosas como:
+```
+...
+devServer: {
+  open: true, // Abrimos el navegador al arrancar el dev-server
+  port: 3000,
+  overlay: true, // Crea un overlay con los errores en el mismo navegador ( No funciona !)
+  compress: true
+}
+```
