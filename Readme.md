@@ -58,3 +58,22 @@ Tenemos Loaders para otras necesidades:
 * sass loader: Para SASS
 * svg loader: Para SVG
 * null loader: Al importarlo, ignora
+
+
+# Refinando código
+
+**El uso de `import React from 'react'` está desaconsejado**. ¿Cómo lo hacemos?
+
+Añadir una configuración al 'babel-loader':
+```
+                    presets: [
+                        [
+                            '@babel/preset-react',
+                            {
+                                runtime: 'automatic'
+                            }
+                        ]
+                    ]
+```
+
+Ahora ya podemos eliminar los import de React.
