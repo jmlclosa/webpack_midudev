@@ -1,3 +1,9 @@
+
+const ruleForStyles = {
+    test: /\.css$/,
+    use: ['style-loader', 'css-loader']
+}
+
 const rulesForJavascript = {
     test: /\.js$/,
     loader: 'babel-loader',
@@ -12,7 +18,7 @@ const rulesForJavascript = {
         ]
     }
 };
-const rules = [rulesForJavascript]
+const rules = [rulesForJavascript, ruleForStyles]
 
 module.exports = {
     // entry: './src/indexjs',

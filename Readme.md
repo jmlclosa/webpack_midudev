@@ -51,6 +51,12 @@ Usaremos el Loader de 'Babel':
    npm install @babel/core babel-loader @babel/preset-react --save-dev
    ```
    
+## Visualizar el resultado
+Podemos crear un index.html en la carpeta ./dist con lo siguiente dentro del `<body>`:
+```
+<div id="root"></div>
+<script src="main.js"></script>
+```   
 
 ## Otros loaders
 Tenemos Loaders para otras necesidades:
@@ -77,3 +83,18 @@ Añadir una configuración al 'babel-loader':
 ```
 
 Ahora ya podemos eliminar los import de React.
+
+# Añadiendo CSS
+
+1. Creamos un fichero ./src/styles.css
+2. No podemos hacer un `import styles.css` en App.js... debemos añadir un Loader de CSS a webpack.
+   1. Creamos una `ruleForStyles` con 2 Loaders:
+      ```
+      ```
+      * style-loader para entender el import
+      * css-loader para que, una vez entendido, si usamos recursos del proyecto en el CSS, los resuelve
+   2. Lo instalamos 
+      ```
+      npm install style-loader css-loader --save-dev
+      ```
+3. Ejecutamos `npm run build`

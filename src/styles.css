@@ -1,0 +1,14 @@
+body {
+    background: #eee;
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    border: 1px solid #666;
+    color: #666;
+    padding: 1rem;
+    border-radius: 4px;
+}
