@@ -22,3 +22,7 @@ Por defecto, al construir la aplicación irá a buscar a ./src/index.js como pun
 este paquete a `./dist` como un fichero `main.js`
 
 En modo desarrollo (usando el flag `--mode=development`) el fichero main.js contiene bastantes cosas para debug y demás.
+
+# Configuración personalizada de Webpack
+
+Utilizaremos el fichero webpack.config.js
