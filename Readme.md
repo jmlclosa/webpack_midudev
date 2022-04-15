@@ -26,3 +26,35 @@ En modo desarrollo (usando el flag `--mode=development`) el fichero main.js cont
 # Configuración personalizada de Webpack
 
 Utilizaremos el fichero webpack.config.js
+
+# Usando React
+1. Instalamos las dependencias de React con: `npm install react react-dom -E`
+2. Creamos el fichero App.js y lo usamos en el index.js
+3. Ahora, para que webpack sea capaz de entender JSX (lo que se usa en App.js) debemos usar un Loader o Preprocesador.
+Usaremos el Loader de 'Babel':
+   1. lo tenemos que declarar como módulo en el fichero de configuración de Webpack:
+   ```
+        module: {
+            rules: [
+                {
+                    test: /\.js$/,
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-react']
+                    }
+                }
+            ]
+        }
+   ```
+   2. Instalamos las dependencias necesarias de Babel:
+   ```
+   npm install @babel/core babel-loader @babel/preset-react --save-dev
+   ```
+   
+
+## Otros loaders
+Tenemos Loaders para otras necesidades:
+* ts loader: Para TypeScript
+* sass loader: Para SASS
+* svg loader: Para SVG
+* null loader: Al importarlo, ignora
