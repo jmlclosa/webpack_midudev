@@ -98,3 +98,14 @@ Ahora ya podemos eliminar los import de React.
       npm install style-loader css-loader --save-dev
       ```
 3. Ejecutamos `npm run build`
+
+
+# Hacer que el HTML sea autogenerado (por un plugin de Webpack)
+
+1. Instalamos el plugin con 
+```
+npm install html-webpack-plugin --save-dev
+```
+2. Lo usamos en webpack.config.js
+3. Movemos el index.html de ./dist a ./src y le quitamos el import del main.js, que lo hará automáticamente
+4. Compilamos

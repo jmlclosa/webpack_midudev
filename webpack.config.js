@@ -1,3 +1,4 @@
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const ruleForStyles = {
     test: /\.css$/,
@@ -25,5 +26,8 @@ module.exports = {
     // output: {
     //     path: path.resolve(__dirname, 'build')
     // }
-    module: {rules}
+    module: {rules},
+    plugins: [
+        new HtmlWebpackPlugin({ template: 'src/index.html'})
+    ]
 }
